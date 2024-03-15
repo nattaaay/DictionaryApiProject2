@@ -1,13 +1,14 @@
-//list of bookmarks
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { API_KEY, URL_ID } from "../Constant/Constant";
 
-const BookmarkList = () => {
+const BookmarkResults = () => {
+  let { id } = useParams();
+
   const [responseData, setResponseData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState([]);
+  const [error, setError] = useState(null); // Changed to null to represent no error
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,23 +37,38 @@ const BookmarkList = () => {
     fetchData();
   }, []);
 
-  // console.log(responseData.map((e) => JSON.parse(e.fields.noun)));
+  // Check if responseData is not empty before accessing it
+  const results = responseData.length && responseData.find((e) => e.id === id);
+
+  let parseData = [];
+  // Check if results is not null or undefined before parsing
+  if (results && results.fields && results.fields.noun) {
+    parseData = JSON.parse(results.fields.noun);
+  }
+
+  console.log("hello", parseData);
 
   return (
-    <>
-      {loading ? (
-        <p>Loading</p>
-      ) : (
-        <div className="p-2">
-          {responseData.map((e) => (
-            <p key={e.id}>
-              <Link to={`/bookmarks-result/${e.id}`}>{e.fields.word}</Link>
-            </p>
-          ))}
-        </div>
-      )}
-    </>
+    <div className="p-2">
+      {loading
+        ? "Loading..."
+        : error
+        ? "Error occurred"
+        : parseData && parseData.length > 0
+        ? parseData[0]?.meanings.map((search) => (
+            <div
+              key={search.partOfSpeech}
+              className="shadow-lg p-3 mb-5 bg-white rounded"
+            >
+              <h2>{search.partOfSpeech}</h2>
+              {search.definitions.map((def, index) => (
+                <p key={index}>• {def.definition}</p>
+              ))}
+            </div>
+          ))
+        : "No results found"}
+    </div>
   );
 };
 
-export default BookmarkList;
+export default BookmarkResults;

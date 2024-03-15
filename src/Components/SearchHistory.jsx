@@ -2,9 +2,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { API_KEY, URL_ID } from "../Constant/Constant";
+import { API_KEY, URL_ID_TWO } from "../Constant/Constant";
 
-const BookmarkList = () => {
+const SearchHistory = () => {
   const [responseData, setResponseData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState([]);
@@ -14,7 +14,7 @@ const BookmarkList = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `https://api.airtable.com/v0/${URL_ID}/Table%201?maxRecords=10&view=Grid%20view`,
+          `https://api.airtable.com/v0/${URL_ID_TWO}/Table%201?maxRecords=20&view=Grid%20view`,
           {
             headers: {
               Authorization:
@@ -36,7 +36,7 @@ const BookmarkList = () => {
     fetchData();
   }, []);
 
-  // console.log(responseData.map((e) => JSON.parse(e.fields.noun)));
+//   console.log(responseData.map((e) => JSON.parse(e.fields.data)));
 
   return (
     <>
@@ -44,9 +44,9 @@ const BookmarkList = () => {
         <p>Loading</p>
       ) : (
         <div className="p-2">
-          {responseData.map((e) => (
+          {responseData.slice().reverse().map((e) => (
             <p key={e.id}>
-              <Link to={`/bookmarks-result/${e.id}`}>{e.fields.word}</Link>
+              <Link to={`/search-history-result/${e.id}`}>{e.fields.name}</Link>
             </p>
           ))}
         </div>
@@ -55,4 +55,4 @@ const BookmarkList = () => {
   );
 };
 
-export default BookmarkList;
+export default SearchHistory;
