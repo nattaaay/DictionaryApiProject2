@@ -10,7 +10,14 @@ html {
 
 body {
   margin: 0;
-  background-color: whitesmoke;
+  background-color: rgba(245, 245, 245, 0.136);
+  width: 100%;
+}
+
+.background {
+  background-image: url("https://img.freepik.com/free-vector/abstract-pastel-memphis-patterned-background_53876-98950.jpg?w=2000&t=st=1710611985~exp=1710612585~hmac=03566ca4958df9c64f35057e9e9f0adf8d1a21aa2039a00bd7d52cefe322b44b");
+  background-size: cover;
+  background-position: center center;
 }
 
 .centered {
@@ -19,4 +26,32 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#dictionary {
+  text-align: center;
+  font-size: 80px;
+}
+
+#find {
+  text-align: center;
+  font-size: 50px;
+}
+
+#inputBox {
+  padding: 10px;
+  border: 4px dotted purple;
+  width: 30%;
+  background-color: rgba(115, 18, 233, 0.266);
+  font-size: 30px;
+}
+
+#firstHeading {
+  font-size: 70px;
+  color: rgba(55, 4, 79, 0.614);
+}
+
+.list {
+  padding: 50px 50px 0px 200px;
+  font-size: 20px;
 }

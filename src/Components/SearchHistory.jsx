@@ -37,11 +37,15 @@ const SearchHistory = () => {
   //   console.log(responseData.map((e) => JSON.parse(e.fields.data)));
 
   return (
-    <>
+    <div className="background">
       {loading ? (
         <p>Loading</p>
       ) : (
-        <div className="p-2">
+        <div className="list">
+          <p id="firstHeading">Your search history... </p>
+          <br />
+          <br />
+          <br />
           {responseData
             .slice()
             .reverse()
@@ -54,7 +58,7 @@ const SearchHistory = () => {
             ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -59,36 +59,92 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="p-2">
-      <h2>Dictionary</h2>
-      <p>Find meanings and save for quick reference</p>
-      <div>
-        <Search value={search} setValue={setSearch} />
-      </div>
-      {loading ? (
-        <button className="btn btn-primary mt-2">Loading...</button>
-      ) : (
-        <button className="btn btn-primary mt-2" onClick={handleRedirect}>
-          Search
-        </button>
-      )}
+    <div className="background">
+      <br />
+      <div className="centered row">
+        <p className="col-sm-12 mt-3" id="dictionary">
+          Dictionary
+        </p>
 
-      <div className="mt-2">
-        <button
-          className="btn btn-success"
-          onClick={() => navigate("/bookmarks")}
-        >
-          Bookmark List
-        </button>
+        <p className="centered" id="find">
+          Find meanings and save for quick reference
+        </p>
+
+        <p id="inputBox">
+          <Search value={search} setValue={setSearch} />
+        </p>
       </div>
-      <div className="mt-2">
-        <button
-          className="btn btn-dark"
-          onClick={() => navigate("/search-history")}
-        >
-          Search History
-        </button>
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      <div className="row">
+        {loading ? (
+          <button className="col-md-4 offset-4 btn btn-outline-primary mt-4">
+            I'm on it...
+          </button> //
+        ) : (
+          <button
+            className="col-md-4 offset-4 btn btn-outline-primary mt-4"
+            onClick={handleRedirect}
+          >
+            {/* <button type="button" class="btn btn-outline-primary">
+              Primary
+            </button> */}
+            Search
+          </button>
+        )}
       </div>
+      <br />
+      <br />
+      <br />
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      <div className="row">
+        {loading ? (
+          <button className="col-md-3 offset-2 btn btn-outline-success mt-4">
+            Hold on...
+          </button> //
+        ) : (
+          <button
+            className="col-md-3 offset-2 btn btn-outline-success mt-4"
+            onClick={() => navigate("/bookmarks")}
+          >
+            Bookmark List
+          </button>
+        )}
+        {/* */} {/* */} {/* */}
+        {/* */} {/* */} {/* */}
+        {/* */} {/* */} {/* */}
+        {/* */} {/* */} {/* */}
+        {/* */} {/* */} {/* */}
+        {/* */} {/* */} {/* */}
+        {/* <div className="row"> */}
+        {loading ? (
+          <button className="col-md-3 offset-2 btn btn-outline-dark mt-4">
+            Just a sec...
+          </button>
+        ) : (
+          <button
+            className="col-md-3 offset-2 btn btn-outline-dark mt-4"
+            onClick={() => navigate("/search-history")}
+          >
+            Search History
+          </button>
+        )}
+      </div>
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
+      {/* */} {/* */} {/* */}
     </div>
   );
 };

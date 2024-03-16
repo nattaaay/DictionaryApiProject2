@@ -46,7 +46,7 @@ const SearchHistoryResults = () => {
   }
 
   return (
-    <div className="p-2">
+    <div className="p-2 background">
       {loading
         ? "Loading..."
         : error

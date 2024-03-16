@@ -38,17 +38,24 @@ const BookmarkList = () => {
 
   return (
     <>
-      {loading ? (
-        <p>Loading</p>
-      ) : (
-        <div className="p-2">
-          {responseData.map((e) => (
-            <p key={e.id}>
-              <Link to={`/bookmarks-result/${e.id}`}>{e.fields.word}</Link>
-            </p>
-          ))}
-        </div>
-      )}
+      <div className="background">
+        {loading ? (
+          <p>Loading</p>
+        ) : (
+          <div className="p-5">
+            {" "}
+            <p id="firstHeading">Click on the word to view more! </p>
+            <br />
+            <br />
+            <br />
+            {responseData.map((e) => (
+              <p className="list" key={e.id}>
+                <Link to={`/bookmarks-result/${e.id}`}>{e.fields.word}</Link>
+              </p>
+            ))}
+          </div>
+        )}
+      </div>
     </>
   );
 };
