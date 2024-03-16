@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa6";
-import { API_KEY, URL_ID } from "../Constant/Constant";
+import Heading from "./Heading";
 
 const SearchResults = () => {
   let { search } = useParams();
@@ -28,8 +28,8 @@ const SearchResults = () => {
     fetchData();
   }, [search]); // Include search parameter here
 
-  const apiUrl = `https://api.airtable.com/v0/${URL_ID}/Table%201`;
-  const authToken = `Bearer ${API_KEY}`;
+  const apiUrl = `https://api.airtable.com/v0/${process.env.URL_ID}/Table%201`;
+  const authToken = `Bearer ${process.env.API_KEY}`;
 
   const handleBookmark = async () => {
     setBookmarkIcon(true);
@@ -64,7 +64,8 @@ const SearchResults = () => {
   return (
     <div className="p-2">
       <div className="d-flex justify-content-between align-items-center">
-        <h2>{search}</h2>
+        <Heading title={search} />
+        {/* <h2>{search}</h2> */}
         {!bookmarkIcon ? (
           <FaRegBookmark
             style={{ width: "30px", height: "30px", cursor: "pointer" }}
@@ -81,7 +82,8 @@ const SearchResults = () => {
         searchResults[0]?.meanings.map((search, index) => {
           return (
             <div className="shadow-lg p-3 mb-5 bg-white rounded" key={index}>
-              <h2>{search.partOfSpeech}</h2>
+              {/* <h2>{search.partOfSpeech}</h2> */}
+              <Heading title={search?.partOfSpeech} />
               {search.definitions.map((def) => {
                 return (
                   <>
