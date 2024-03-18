@@ -10,15 +10,14 @@ html {
 
 body {
   margin: 0;
-  background-color: rgba(245, 245, 245, 0.136);
+  background-color: rgba(185, 25, 97, 0.136);
   width: 100%;
 }
 
 .background {
   background-image: url("https://img.freepik.com/free-vector/abstract-pastel-memphis-patterned-background_53876-98950.jpg?w=2000&t=st=1710611985~exp=1710612585~hmac=03566ca4958df9c64f35057e9e9f0adf8d1a21aa2039a00bd7d52cefe322b44b");
-  background-size: cover;
-  background-position: center center;
-  height: 100vh;
+  background-repeat: repeat-y;
+  height: auto;
 }
 
 .centered {

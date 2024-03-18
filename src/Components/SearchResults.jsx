@@ -80,15 +80,11 @@ const SearchResults = () => {
         searchResults[0]?.meanings.map((search, index) => {
           return (
             <div className="shadow-lg p-3 mb-5 bg-white rounded" key={index}>
-              {/* <h2>{search.partOfSpeech}</h2> */}
               <Heading title={search?.partOfSpeech} />
               {search.definitions.map((def) => {
                 return (
                   <>
-                    {/* <h2>Definition</h2> */}
                     <p>• {def.definition}</p>
-                    {/* <h2>Example</h2>
-                    <p>{def.example}</p> */}
                   </>
                 );
               })}
