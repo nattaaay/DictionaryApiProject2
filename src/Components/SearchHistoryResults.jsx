@@ -18,13 +18,10 @@ const SearchHistoryResults = () => {
           {
             headers: {
               Authorization: `Bearer ${process.env.API_KEY}`,
-              Cookie:
-                "brw=brwKZl8aJarB2k2SF; brwConsent=opt-out; AWSALB=B37s8RmZk3j8TpJ5hI11Egg++sMXV4Jm+mB25MISUhp3T5ohX+xhEK18vpMUY4THhhHZu/GVhutpv4cIWLiW7HVaYXLSpG1lwUQmlW3T1aqQeuI6YJoOJeLy1H+r; AWSALBCORS=B37s8RmZk3j8TpJ5hI11Egg++sMXV4Jm+mB25MISUhp3T5ohX+xhEK18vpMUY4THhhHZu/GVhutpv4cIWLiW7HVaYXLSpG1lwUQmlW3T1aqQeuI6YJoOJeLy1H+r",
             },
           }
         );
         setResponseData(response.data.records);
-        // console.log(response.data);
         setLoading(false);
       } catch (error) {
         setError(error);

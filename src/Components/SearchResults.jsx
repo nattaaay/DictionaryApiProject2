@@ -26,7 +26,7 @@ const SearchResults = () => {
     };
 
     fetchData();
-  }, [search]); // Include search parameter here
+  }, [search]);
 
   const apiUrl = `https://api.airtable.com/v0/${process.env.URL_ID}/Table%201`;
   const authToken = `Bearer ${process.env.API_KEY}`;
@@ -50,8 +50,6 @@ const SearchResults = () => {
           headers: {
             Authorization: authToken,
             "Content-Type": "application/json",
-            // Cookie:
-            //   "brw=brwKZl8aJarB2k2SF; brwConsent=opt-out; AWSALB=UspS+xJvYfq08bB2gTJ28BfqpBJhyMrSmoZOuhBBz0EyEr96a7BtP5VB6+9s1qMVPWndfFZ+J/PzyKOOGesKB7cN505kJBE0WThshWw71EJU0FNmRg9zD8KcEOmd; AWSALBCORS=UspS+xJvYfq08bB2gTJ28BfqpBJhyMrSmoZOuhBBz0EyEr96a7BtP5VB6+9s1qMVPWndfFZ+J/PzyKOOGesKB7cN505kJBE0WThshWw71EJU0FNmRg9zD8KcEOmd",
           },
         }
       );
@@ -65,7 +63,7 @@ const SearchResults = () => {
     <div className="p-5 background">
       <div className="d-flex justify-content-between align-items-center">
         <Heading title={search} />
-        {/* <h2>{search}</h2> */}
+
         {!bookmarkIcon ? (
           <FaRegBookmark
             style={{ width: "30px", height: "30px", cursor: "pointer" }}

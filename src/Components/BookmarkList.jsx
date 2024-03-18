@@ -36,7 +36,7 @@ const BookmarkList = () => {
       {loading ? (
         <p>Loading</p>
       ) : (
-        <div className="background">
+        <div className="row list">
           <p id="firstHeading">Click on the word to view more! </p>
           <br />
           <br />
@@ -44,7 +44,8 @@ const BookmarkList = () => {
           {responseData.map((e) => (
             <div className="list">
               <div key={e.id}>
-                <Link to={`/bookmarks-result/${e.id}`}>{e.fields.word}</Link>
+                {" "}
+                •<Link to={`/bookmarks-result/${e.id}`}>{e.fields.word}</Link>
               </div>
             </div>
           ))}

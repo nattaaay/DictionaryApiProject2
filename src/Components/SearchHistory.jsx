@@ -1,4 +1,4 @@
-//list of bookmarks
+//list of searched words
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const SearchHistory = () => {
   const [responseData, setResponseData] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,9 +21,9 @@ const SearchHistory = () => {
           }
         );
         setResponseData(response.data.records);
-
         setLoading(false);
       } catch (error) {
+        setError(error);
         setLoading(false);
       }
     };
@@ -45,8 +45,9 @@ const SearchHistory = () => {
             .slice()
             .reverse()
             .map((e) => (
-              <div className="list">
+              <div className="col-sm-5">
                 <div key={e.id}>
+                  {" "}
                   •
                   <Link to={`/search-history-result/${e.id}`}>
                     {e.fields.name}
