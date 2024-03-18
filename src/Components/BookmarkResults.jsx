@@ -14,7 +14,7 @@ const BookmarkResults = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `https://api.airtable.com/v0/${process.env.URL_ID}/Table%201?maxRecords=10&view=Grid%20view`,
+          `https://api.airtable.com/v0/${process.env.URL_ID}/Table%201?maxRecords=50&view=Grid%20view`,
           {
             headers: {
               Authorization: `Bearer ${process.env.API_KEY}`,
@@ -24,7 +24,7 @@ const BookmarkResults = () => {
           }
         );
         setResponseData(response.data.records);
-        // console.log(response.data);
+
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -47,24 +47,26 @@ const BookmarkResults = () => {
   console.log("hello", parseData);
 
   return (
-    <div className="p-2 background">
-      {loading
-        ? "Loading..."
-        : error
-        ? "Error occurred"
-        : parseData && parseData.length > 0
-        ? parseData[0]?.meanings.map((search) => (
-            <div
-              key={search.partOfSpeech}
-              className="shadow-lg p-3 mb-5 bg-white rounded"
-            >
-              <h2>{search.partOfSpeech}</h2>
-              {search.definitions.map((def, index) => (
-                <p key={index}>• {def.definition}</p>
-              ))}
-            </div>
-          ))
-        : "No results found"}
+    <div className="p-2 background shadow-lg p-3 mb-5 bg-white rounded">
+      <div>
+        {loading
+          ? "Loading..."
+          : error
+          ? "Error occurred"
+          : parseData && parseData.length > 0
+          ? parseData[0]?.meanings.map((search) => (
+              <div
+                key={search.partOfSpeech}
+                className="shadow-lg p-3 mb-5 bg-white rounded"
+              >
+                <h2>{search.partOfSpeech}</h2>
+                {search.definitions.map((def, index) => (
+                  <p key={index}>• {def.definition}</p>
+                ))}
+              </div>
+            ))
+          : "No results found"}
+      </div>
     </div>
   );
 };

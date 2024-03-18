@@ -87,7 +87,7 @@ const SearchResults = () => {
               {search.definitions.map((def) => {
                 return (
                   <>
-                    {/* <h2>Defination</h2> */}
+                    {/* <h2>Definition</h2> */}
                     <p>• {def.definition}</p>
                     {/* <h2>Example</h2>
                     <p>{def.example}</p> */}

@@ -14,7 +14,7 @@ const SearchHistoryResults = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `https://api.airtable.com/v0/${process.env.URL_ID_TWO}/Table%201?maxRecords=10&view=Grid%20view`,
+          `https://api.airtable.com/v0/${process.env.URL_ID_TWO}/Table%201?maxRecords=50&view=Grid%20view`,
           {
             headers: {
               Authorization: `Bearer ${process.env.API_KEY}`,
