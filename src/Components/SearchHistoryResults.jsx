@@ -61,6 +61,12 @@ const SearchHistoryResults = () => {
             </div>
           ))
         : "No results found"}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };
